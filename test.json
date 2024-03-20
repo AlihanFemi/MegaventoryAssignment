@@ -1,0 +1,16 @@
+StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.HttpConnectionResponseContent, Headers:
+{
+  Cache-Control: private
+  Vary: Origin
+  X-AspNet-Version: 4.0.30319
+  Access-Control-Allow-Origin: api.megaventory.com
+  X-Frame-Options: deny
+  Access-Control-Allow-Methods: GET, POST, PUT, DELETE
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy: frame-ancestors 'self';
+  Date: Wed, 20 Mar 2024 21:53:08 GMT
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 543
+}
