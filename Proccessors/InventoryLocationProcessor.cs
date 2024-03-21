@@ -11,10 +11,10 @@ namespace MegaventoryAssignment.Proccessors
     public static class InventoryLocationProcessor
     {
 
-        public static async Task AddProduct(InventoryLocationModel data, string action)
+        public static async Task AddProduct(InventoryLocationModel data)
         {
             string url = "https://api.megaventory.com/v2017a/InventoryLocation/InventoryLocationUpdate\r\n";
-            InventoryLocationResultModel result = new InventoryLocationResultModel(data, action);
+            InventoryLocationResultModel result = new InventoryLocationResultModel(data, "Insert");
             string jsonString = JsonSerializer.Serialize(result);
             var contentData = new StringContent(jsonString, Encoding.UTF8, "application/json");
 

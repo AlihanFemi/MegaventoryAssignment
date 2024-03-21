@@ -8,17 +8,18 @@ using System.Threading.Tasks;
 
 namespace MegaventoryAssignment.Proccessors
 {
-    public static class SupplierClientProcessor
+    public class ProductClientRelationshipProcessor
     {
-        public static async Task AddProduct(SupplierClientModel data)
+        public static async Task AddProduct(ProductClientRelationshipModel data)
         {
-            string url = "https://api.megaventory.com/v2017a/SupplierClient/SupplierClientUpdate\r\n";
-            SupplierClientResultModel result = new SupplierClientResultModel(data, "Insert");
+            string url = "https://api.megaventory.com/v2017a/ProductClient/ProductClientUpdate";
+            ProductClientRelationshipResultModel result = new ProductClientRelationshipResultModel(data, "Insert");
             string jsonString = JsonSerializer.Serialize(result);
+            File.WriteAllText("C:\\Users\\DELL\\source\\repos\\MegaventoryAssignment\\test.json", jsonString);
             var contentData = new StringContent(jsonString, Encoding.UTF8, "application/json");
 
             var response = await ApiHelper.ApiClient.PostAsync(url, contentData);
-            File.WriteAllText("C:\\Users\\DELL\\source\\repos\\MegaventoryAssignment\\test.json", jsonString);
+
         }
     }
 }

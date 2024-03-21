@@ -11,15 +11,15 @@ namespace MegaventoryAssignment.Proccessors
     public static class ProductProcessor
     {
         
-        public static async Task AddProduct(ProductModel data)
+        public static async Task AddProduct(ProductModel data, string action)
         {
             string url = "https://api.megaventory.com/v2017a/Product/ProductUpdate\r\n";
-            ProductResultModel result = new ProductResultModel(data, "action");
+            ProductResultModel result = new ProductResultModel(data, action);
             string jsonString = JsonSerializer.Serialize(result);
             var contentData = new StringContent(jsonString, Encoding.UTF8, "application/json");
 
             var response = await ApiHelper.ApiClient.PostAsync(url, contentData);
-            File.WriteAllText("C:\\Users\\DELL\\source\\repos\\MegaventoryAssignment\\test.json", response.ToString());
+            File.WriteAllText("C:\\Users\\DELL\\source\\repos\\MegaventoryAssignment\\test.json", jsonString);
         }
     }
 }
